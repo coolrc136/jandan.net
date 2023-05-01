@@ -56,7 +56,7 @@ class _HotPageState extends State<HotPage> with AutomaticKeepAliveClientMixin {
         () => _pagingController.refresh(),
       ),
       child: PagedListView(
-        cacheExtent: MediaQuery.of(context).size.height * 2,
+        cacheExtent: MediaQuery.of(context).size.height,
         scrollController: widget.scrollController,
         pagingController: _pagingController,
         builderDelegate: PagedChildBuilderDelegate<CardItem>(

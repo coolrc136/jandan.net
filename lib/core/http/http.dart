@@ -11,8 +11,8 @@ class XHttp {
   static final Dio dio = Dio(
     BaseOptions(
       baseUrl: "https://i.jandan.net",
-      connectTimeout: 5000,
-      receiveTimeout: 3000,
+      connectTimeout: const Duration(seconds: 5),
+      receiveTimeout: const Duration(seconds: 3),
       headers: {
         "User-Agent": "Jandan Android App V5.2.0.0",
       },
@@ -42,7 +42,7 @@ class XHttp {
   ///error统一处理
   static void handleError(DioError e) {
     switch (e.type) {
-      case DioErrorType.connectTimeout:
+      case DioErrorType.connectionTimeout:
         Log.http.severe("连接超时");
         throw NetWorkException(locator<S>().connect_timeout,
             request: e.requestOptions.toString());
@@ -54,7 +54,7 @@ class XHttp {
         Log.http.severe("响应超时");
         throw NetWorkException(locator<S>().receive_timeout,
             request: e.requestOptions.toString());
-      case DioErrorType.response:
+      case DioErrorType.badResponse:
         Log.http.severe("出现异常");
         throw NetWorkException(locator<S>().response,
             request: e.requestOptions.toString(),

@@ -2,7 +2,6 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:jandan/init/splash.dart';
 import 'package:logging/logging.dart';
 import 'package:provider/provider.dart';
 import 'package:timeago/timeago.dart' as timeago;
@@ -12,6 +11,7 @@ import '../generated/l10n.dart';
 import '../utils/provider.dart';
 import '../utils/sputils.dart';
 import 'locator.dart';
+import 'splash.dart';
 import 'time_message.dart';
 
 //默认App的启动
