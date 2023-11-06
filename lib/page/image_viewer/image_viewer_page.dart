@@ -204,8 +204,8 @@ class _ImageViewerPageState extends State<ImageViewerPage>
                           await file.writeAsBytes(imageData!);
                         }
 
-                        await Share.shareFiles(
-                          [file.path],
+                        await Share.shareXFiles(
+                          [XFile(file.path)],
                         );
                         await file.delete();
                       } catch (e) {

@@ -152,9 +152,9 @@ class _PostTucaoCardState extends State<PostTucaoCard> {
             ),
             Html(
               data: tucao.content.trim(),
-              onLinkTap: (url, context, attributes, element) {
+              onLinkTap: (url, attributes, element) {
                 if (url != null) {
-                  launch(url);
+                  launchUrl(Uri.parse(url));
                 }
               },
             ),

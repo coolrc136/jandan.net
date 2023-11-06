@@ -50,22 +50,22 @@ dependencies:
   get_it: # locator
 
   dio: ^5.1.1
-  share_plus: ^6.3.2
+  share_plus: ^7.2.1
   timeago: ^3.1.0
 
   ## UI
   oktoast: ^3.1.4
   cached_network_image: ^3.2.3
-  extended_image: ^7.0.2
+  extended_image: ^8.1.1
   extended_nested_scroll_view: ^6.0.0
   infinite_scroll_pagination: ^4.0.0-dev.1
-  flutter_html: ^2.2.0
+  flutter_html: ^3.0.0-alpha.6
   flutter_colorpicker: ^1.0.3
 
   image_gallery_saver: ^1.7.1
   image: ^3.1.0
   permission_handler: ^10.2.0
-  package_info_plus: ^3.1.0
+  package_info_plus: ^4.2.0
 
 dev_dependencies:
   flutter_test:

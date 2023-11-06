@@ -17,8 +17,9 @@ import '../text/blod_text.dart';
 const double cardMargin = 8;
 
 class WuliaoCard extends StatefulWidget {
-  const WuliaoCard({Key? key, required this.item}) : super(key: key);
+  WuliaoCard({Key? key, required this.item}) : super(key: key);
   final CardItem item;
+  double? height;
 
   @override
   State<WuliaoCard> createState() => _WuliaoCardState();
@@ -96,7 +97,7 @@ class _WuliaoCardState extends State<WuliaoCard> {
           switch (state.extendedImageLoadState) {
             case LoadState.loading:
               return SizedBox(
-                height: 80,
+                height: widget.height ?? 80,
                 child: Image.asset(
                   Assets.assetsLoadLoading,
                   color: Theme.of(context).primaryColor,
@@ -104,6 +105,7 @@ class _WuliaoCardState extends State<WuliaoCard> {
               );
             case LoadState.completed:
               final image = state.extendedImageInfo?.image;
+              widget.height = image?.height.toDouble();
               if (image?.height != null && image!.height / image.width >= 2) {
                 return Stack(
                   children: [
@@ -119,10 +121,10 @@ class _WuliaoCardState extends State<WuliaoCard> {
                         bottom: 0,
                         child: Container(
                           alignment: Alignment.center,
-                          child: Text(locator<S>().tap_to_see_full_img),
                           width: MediaQuery.of(context).size.width -
                               (cardMargin * 2),
                           color: Colors.white60,
+                          child: Text(locator<S>().tap_to_see_full_img),
                         ),
                       ),
                     )

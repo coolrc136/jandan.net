@@ -165,22 +165,26 @@ class _NewsDetailPageState extends State<NewsDetailPage> {
                 Styles.wigetHorizontalMargin, 0),
             child: Html(
               data: postContent?.post.content,
-              onLinkTap: (url, context, attributes, element) {
+              onLinkTap: (url, attributes, element) {
                 if (url != null) {
                   launchUrl(Uri.parse(url));
                 }
               },
-              onImageTap: (url, renderContext, attributes, element) {
-                Navigator.of(context).push(PageRouteBuilder(
-                  pageBuilder: (c, a1, a2) => ImageViewerPage(
-                    images: [url!],
-                    currentIndex: 0,
-                  ),
-                  transitionsBuilder: (c, anim, a2, child) =>
-                      FadeTransition(opacity: anim, child: child),
-                  transitionDuration: const Duration(milliseconds: 300),
-                ));
-              },
+              extensions: [
+                OnImageTapExtension(
+                  onImageTap: (url, attributes, element) {
+                    Navigator.of(context).push(PageRouteBuilder(
+                      pageBuilder: (c, a1, a2) => ImageViewerPage(
+                        images: [url!],
+                        currentIndex: 0,
+                      ),
+                      transitionsBuilder: (c, anim, a2, child) =>
+                          FadeTransition(opacity: anim, child: child),
+                      transitionDuration: const Duration(milliseconds: 300),
+                    ));
+                  },
+                )
+              ],
             ),
           ),
       ],
